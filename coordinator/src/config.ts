@@ -69,8 +69,7 @@ export function loadConfig(): CoordinatorConfig {
         : "Test SDF Network ; September 2015",
       htlcContract: process.env[isMainnet ? "SOROBAN_HTLC_MAINNET" : "SOROBAN_HTLC_TESTNET"],
       resolverRegistry:
-        process.env[isMainnet ? "SOROBAN_RESOLVER_REGISTRY_MAINNET" : "SOROBAN_RESOLVER_REGISTRY_TESTNET"],
-      timelockSafetyGapSeconds: 600
+        process.env[isMainnet ? "SOROBAN_RESOLVER_REGISTRY_MAINNET" : "SOROBAN_RESOLVER_REGISTRY_TESTNET"]
     },
     timelockSafetyGapSeconds: 600
   };
