@@ -1269,13 +1269,13 @@ async function initializeRelayer() {
         // ETH lock (src): Stellar lock + 10m gap + 2 hours
         const stellarTimelock = Math.floor(Date.now() / 1000) + (2 * 60 * 60);
         const ethTimelock = stellarTimelock + RELAYER_CONFIG.security.timelockSafetyGapSeconds + (2 * 60 * 60);
-        
+
         // Validate
         const validation = validateTimelockOrdering(ethTimelock, stellarTimelock, RELAYER_CONFIG.security.timelockSafetyGapSeconds);
         if (!validation.isValid) {
           throw new Error(`Invalid timelock ordering for XLM->ETH: ${validation.error}`);
         }
-        
+
         const orderData = {
           orderId,
           direction: 'xlm_to_eth',
@@ -1301,10 +1301,10 @@ async function initializeRelayer() {
              beneficiary: ethAddress
            }
          };
-         
-         
+
+
          await storeActiveOrder(orderId, orderData);
-         
+
          res.json({
            success: true,
            orderId,
